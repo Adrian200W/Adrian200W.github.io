@@ -70,9 +70,9 @@
         let noClickCount = 0;
         const images = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10.jpg"];
         const messages = [
-            "Naprawdę? ", "Jesteś pewna? ", "A może jednak? ", "Daj mi szansę! ", 
-            "To będzie cudowny dzień! ", "Zastanów się jeszcze raz! ", "Nie odmawiaj mi, proszę! ", 
-            "Czyżbym musiał się bardziej postarać? ", "Frajerku ile mozna? ", "Bedzie fajnie! "
+            "Naprawdę? ", "Jesteś pewna? ", "A może jednak? ", "No daj mi szansę! ", 
+            "To będzie zajebisty dzień(chyba)! ", "Zastanów się jeszcze raz! ", "Nie odmawiaj mi, proszę! ", 
+            "Czyżbym musiał cie odurzyc? ", "Frajerku ile mozna? ", "Bedzie fajnie, zgódź sie frajerze! "
         ];
         
         document.getElementById("no").addEventListener("click", function() {
@@ -85,13 +85,13 @@
                 document.getElementById("image").style.transform = `scale(${1 + noClickCount * 0.1})`;
                 noClickCount++;
             } else {
-                alert("Już wystarczy! Daj mi szansę! ❤️"); // Dodano komunikat po osiągnięciu limitu kliknięć
+                alert("Już wystarczy! Daj mi szansę!❤️(I tak nie masz wyjscia hehe...) ❤️"); // Dodano komunikat po osiągnięciu limitu kliknięć
             }
         });
 
         document.getElementById("yes").addEventListener("click", function() {
             if (noClickCount === 0) {
-                alert("Jestem w szoku! Ale się cieszę! ❤️");
+                alert("Jestem w szoku,że sie zgodziłaś! Ale bardzo się cieszę! ❤️");
             } else {
                 alert("To było aż tak trudne? ❤️");
             }
