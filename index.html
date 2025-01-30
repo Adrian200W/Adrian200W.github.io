@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynki</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            overflow: hidden;
+        }
+        #container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+        }
+        img {
+            width: 90%;
+            max-width: 300px;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        #yes {
+            background-color: #ff4081;
+            color: white;
+        }
+        #no {
+            background-color: #ccc;
+            color: black;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+        }
+        #message {
+            font-size: 18px;
+            margin-top: 20px; /* Dodano margines górny */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Czy zostaniesz moją Walentynką? ❤️</h1>
+        <img id="image" src="img1.jpg" alt="Obrazek">
+        <br>
+        <button id="yes" class="button">Tak</button>
+        <button id="no" class="button">Nie</button>
+        <p id="message">Czy chciałabyś spędzić ze mną Walentynki 14 lutego?(Powiem ci co i jak w na zywo) </p>
+    </div>
+
+    <script>
+        let noClickCount = 0;
+        const images = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10.jpg"];
+        const messages = [
+            "Naprawdę? ", "Jesteś pewna? ", "A może jednak? ", "No daj mi szansę! ", 
+            "To będzie zajebisty dzień(chyba)! ", "Zastanów się jeszcze raz! ", "Nie odmawiaj mi, proszę! ", 
+            "Czyżbym musiał cie odurzyc? ", "Frajerku ile mozna? ", "Bedzie fajnie, zgódź sie frajerze! "
+        ];
+        
+        document.getElementById("no").addEventListener("click", function() {
+            if (noClickCount < images.length) { // Zmieniono warunek na <, aby uniknąć błędu indeksu
+                document.getElementById("image").src = images[noClickCount];
+                document.getElementById("message").textContent = messages[noClickCount];
+                this.style.fontSize = Math.max(10, (20 - noClickCount * 2)) + "px";
+                this.style.left = Math.random() * (window.innerWidth - 100) + "px";
+                this.style.top = Math.random() * (window.innerHeight - 50) + "px";
+                document.getElementById("image").style.transform = `scale(${1 + noClickCount * 0.1})`;
+                noClickCount++;
+            } else {
+                alert("Już wystarczy! Daj mi szansę!❤️(I tak nie masz wyjscia hehe...) ❤️"); // Dodano komunikat po osiągnięciu limitu kliknięć
+            }
+        });
+
+        document.getElementById("yes").addEventListener("click", function() {
+            if (noClickCount === 0) {
+                alert("Jestem w szoku,że sie zgodziłaś! Ale bardzo się cieszę! ❤️");
+            } else {
+                alert("To było aż tak trudne? ❤️");
+            }
+        });
+    </script>
+</body>
+</html>
